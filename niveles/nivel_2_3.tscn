@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwjwjvqincsf2"]
+
+[ext_resource type="Texture2D" uid="uid://bt85cuxbrp1rm" path="res://assets/nivel2/background/background_3.png" id="1_dg45a"]
+[ext_resource type="PackedScene" uid="uid://dq7a63trd57k8" path="res://personaje/personaje.tscn" id="2_flhwe"]
+[ext_resource type="Script" uid="uid://dnoggb3ym365c" path="res://camera_2_3.gd" id="3_4c5dl"]
+[ext_resource type="PackedScene" uid="uid://dqvw3nmrc4iup" path="res://item/puerta.tscn" id="4_flhwe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbl20"]
+size = Vector2(600, 20)
+
+[node name="nivel_2_3" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Background3" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(300, 171.5)
+scale = Vector2(1, 0.856667)
+texture = ExtResource("1_dg45a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(300, 268)
+shape = SubResource("RectangleShape2D_lbl20")
+
+[node name="Personaje" parent="." instance=ExtResource("2_flhwe")]
+position = Vector2(22, 224)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("object_to_follow")]
+position = Vector2(194, 162)
+zoom = Vector2(3, 3)
+script = ExtResource("3_4c5dl")
+object_to_follow = NodePath("../Personaje")
+
+[node name="Puerta" parent="." instance=ExtResource("4_flhwe")]
+position = Vector2(575, 232)

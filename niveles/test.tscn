@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dua40t5ws566c"]
+
+[ext_resource type="PackedScene" uid="uid://gsncamps7vot" path="res://plataforma/suelo.tscn" id="1_2xoau"]
+[ext_resource type="PackedScene" uid="uid://dq7a63trd57k8" path="res://personaje/personaje.tscn" id="2_56la6"]
+[ext_resource type="PackedScene" uid="uid://ce5wyoh03axt7" path="res://enemigos/enemy_shoot.tscn" id="3_k0sg5"]
+[ext_resource type="PackedScene" uid="uid://7lvph7sm4qct" path="res://enemigos/enemy_melee.tscn" id="4_56la6"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Suelos" type="Node2D" parent="."]
+position = Vector2(330, 195)
+
+[node name="Suelo" parent="Suelos" instance=ExtResource("1_2xoau")]
+position = Vector2(-348, 167)
+
+[node name="Suelo2" parent="Suelos" instance=ExtResource("1_2xoau")]
+position = Vector2(-224, 167)
+
+[node name="Suelo3" parent="Suelos" instance=ExtResource("1_2xoau")]
+position = Vector2(-100, 167)
+
+[node name="Suelo4" parent="Suelos" instance=ExtResource("1_2xoau")]
+position = Vector2(148, 167)
+
+[node name="Suelo5" parent="Suelos" instance=ExtResource("1_2xoau")]
+position = Vector2(24, 167)
+
+[node name="Suelo8" parent="Suelos" instance=ExtResource("1_2xoau")]
+position = Vector2(272, 167)
+
+[node name="Suelo9" parent="Suelos" instance=ExtResource("1_2xoau")]
+position = Vector2(396, 167)
+
+[node name="Suelo10" parent="Suelos" instance=ExtResource("1_2xoau")]
+position = Vector2(520, 167)
+
+[node name="Suelo11" parent="Suelos" instance=ExtResource("1_2xoau")]
+position = Vector2(768, 167)
+
+[node name="Suelo12" parent="Suelos" instance=ExtResource("1_2xoau")]
+position = Vector2(644, 167)
+
+[node name="Suelo2" parent="." instance=ExtResource("1_2xoau")]
+position = Vector2(422, 193)
+
+[node name="Personaje" parent="." instance=ExtResource("2_56la6")]
+position = Vector2(43, 303)
+
+[node name="EnemyShoot" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("3_k0sg5")]
+position = Vector2(461, 147)
+jugador = NodePath("../Personaje")
+
+[node name="EnemyMelee" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("4_56la6")]
+position = Vector2(564, 300)
+jugador = NodePath("../Personaje")

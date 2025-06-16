@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4xij4vvk8vtj"]
+
+[ext_resource type="PackedScene" uid="uid://dq7a63trd57k8" path="res://personaje/personaje.tscn" id="1_eu3iu"]
+[ext_resource type="Script" uid="uid://b0k5qpodnsejk" path="res://niveles/camera.gd" id="2_i43ji"]
+[ext_resource type="PackedScene" uid="uid://5oc35463gcp6" path="res://item/power_up.tscn" id="3_adjju"]
+[ext_resource type="PackedScene" uid="uid://gsncamps7vot" path="res://plataforma/suelo.tscn" id="4_1oike"]
+[ext_resource type="Texture2D" uid="uid://cax6rd6xj5qdn" path="res://assets/nivel1/background/background.png" id="5_i43ji"]
+[ext_resource type="PackedScene" uid="uid://dqvw3nmrc4iup" path="res://item/puerta.tscn" id="6_adjju"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i43ji"]
+size = Vector2(105, 9)
+
+[node name="Nivel1_1" type="Node2D"]
+
+[node name="Backgrounds" type="Node2D" parent="."]
+
+[node name="Background2" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(894, 153)
+texture = ExtResource("5_i43ji")
+
+[node name="Background" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(294, 153)
+texture = ExtResource("5_i43ji")
+
+[node name="Suelos" type="Node2D" parent="."]
+position = Vector2(-73, 53)
+
+[node name="Suelo" parent="Suelos" instance=ExtResource("4_1oike")]
+position = Vector2(129, 265)
+
+[node name="Suelo2" parent="Suelos" instance=ExtResource("4_1oike")]
+position = Vector2(253, 265)
+
+[node name="Suelo3" parent="Suelos" instance=ExtResource("4_1oike")]
+position = Vector2(377, 265)
+
+[node name="Suelo4" parent="Suelos" instance=ExtResource("4_1oike")]
+position = Vector2(625, 265)
+
+[node name="Suelo5" parent="Suelos" instance=ExtResource("4_1oike")]
+position = Vector2(501, 265)
+
+[node name="Suelo8" parent="Suelos" instance=ExtResource("4_1oike")]
+position = Vector2(749, 265)
+
+[node name="Suelo9" parent="Suelos" instance=ExtResource("4_1oike")]
+position = Vector2(873, 265)
+
+[node name="Suelo10" parent="Suelos" instance=ExtResource("4_1oike")]
+position = Vector2(997, 265)
+
+[node name="Suelo11" parent="Suelos" instance=ExtResource("4_1oike")]
+position = Vector2(1245, 265)
+
+[node name="Suelo12" parent="Suelos" instance=ExtResource("4_1oike")]
+position = Vector2(1121, 265)
+
+[node name="Plataformas" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D"]
+position = Vector2(264.5, 275.5)
+shape = SubResource("RectangleShape2D_i43ji")
+one_way_collision = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas/StaticBody2D"]
+position = Vector2(149, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D/StaticBody2D"]
+position = Vector2(715, 275)
+shape = SubResource("RectangleShape2D_i43ji")
+one_way_collision = true
+
+[node name="PowerUp" parent="." instance=ExtResource("3_adjju")]
+visible = false
+position = Vector2(370, 60)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("object_to_follow")]
+position = Vector2(190, 219)
+zoom = Vector2(3, 3)
+script = ExtResource("2_i43ji")
+object_to_follow = NodePath("../Personaje")
+
+[node name="Personaje" parent="." instance=ExtResource("1_eu3iu")]
+position = Vector2(23, 289)
+
+[node name="Puerta" parent="." instance=ExtResource("6_adjju")]
+position = Vector2(1135, 292)
