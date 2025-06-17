@@ -11,6 +11,10 @@ const ESCENA_BULLET = preload("res://personaje/bullet.tscn")
 var jugador_detectado = false
 
 func _physics_process(delta: float) -> void:
+	#Direccion
+	var direccion = -1 if (jugador.position.x - $".".position.x) < 0 else 1
+	$Sprite.scale.x = direccion
+	
 	#Gravedad
 	if not is_on_floor():
 		velocity.y = velocity.y + gravity * delta

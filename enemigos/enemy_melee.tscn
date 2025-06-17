@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://7lvph7sm4qct"]
 
 [ext_resource type="Script" uid="uid://b6q31xu7kd7ue" path="res://enemigos/enemy_melee.gd" id="1_21y22"]
-[ext_resource type="Texture2D" uid="uid://bq1ydjytlf4vt" path="res://assets/character/idle/idle1.png" id="1_dob15"]
+[ext_resource type="Texture2D" uid="uid://cxg3nucglg48d" path="res://assets/enemies/shade_melee.png" id="2_21y22"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3xpvn"]
 radius = 9.0
@@ -14,7 +14,7 @@ size = Vector2(392, 42)
 script = ExtResource("1_21y22")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_dob15")
+texture = ExtResource("2_21y22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)

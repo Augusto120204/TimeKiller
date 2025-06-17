@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cna5v1eucs031"]
+
+[ext_resource type="Texture2D" uid="uid://cxl3okf6o8ydp" path="res://assets/character/arm/arm.png" id="1_kwqu2"]
+
+[node name="Arm" type="Node2D"]
+
+[node name="Arm" type="Sprite2D" parent="."]
+position = Vector2(5, 3)
+texture = ExtResource("1_kwqu2")
