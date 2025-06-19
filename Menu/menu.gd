@@ -7,9 +7,7 @@ func _on_jugar_pressed() -> void:
 	get_tree().change_scene_to_file("res://niveles/nivel_1.tscn")
 	
 
-func _on_configuraciones_pressed() -> void:
-	pass # Replace with function body.
 
 
 func _on_salir_pressed() -> void:
-	get_tree().quit()# Replace with function body.
+	get_tree().quit()

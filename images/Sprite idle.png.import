@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqnpdjwixosng"
-path="res://.godot/imported/BaseSecreta.jpg-599e64a06e4c04a77ccb5ef1007b19d0.ctex"
+uid="uid://ccwouhit30ecp"
+path="res://.godot/imported/Sprite idle.png-12c76f3d38f1dd44d55dc2078daa42e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/BaseSecreta.jpg"
-dest_files=["res://.godot/imported/BaseSecreta.jpg-599e64a06e4c04a77ccb5ef1007b19d0.ctex"]
+source_file="res://images/Sprite idle.png"
+dest_files=["res://.godot/imported/Sprite idle.png-12c76f3d38f1dd44d55dc2078daa42e1.ctex"]
 
 [params]
 

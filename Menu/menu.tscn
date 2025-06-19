@@ -52,13 +52,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -117.5
-offset_right = 100.0
-offset_bottom = 117.5
+offset_left = -111.0
+offset_top = -37.0
+offset_right = 89.0
+offset_bottom = 287.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 5
 
 [node name="Jugar" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
@@ -79,3 +79,4 @@ texture_normal = SubResource("AtlasTexture_v3yle")
 texture_pressed = ExtResource("8_2p233")
 
 [connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]

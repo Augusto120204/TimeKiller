@@ -107,6 +107,14 @@ visible = false
 position = Vector2(188, 148)
 jugador = NodePath("../Personaje")
 
+[node name="EnemyShoot2" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("9_uxua8")]
+position = Vector2(251, 226)
+jugador = NodePath("../Personaje")
+
+[node name="EnemyShoot3" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("9_uxua8")]
+position = Vector2(830, 227)
+jugador = NodePath("../Personaje")
+
 [connection signal="player_hit" from="Personaje" to="HUD" method="_on_personaje_player_hit"]
 [connection signal="player_hit" from="Personaje" to="GameController" method="_on_personaje_player_hit"]
 [connection signal="player_hp_up" from="Personaje" to="HUD" method="_on_personaje_player_hp_up"]
