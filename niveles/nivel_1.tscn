@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ce5wyoh03axt7" path="res://enemigos/enemy_shoot.tscn" id="9_uxua8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i43ji"]
-size = Vector2(210.5, 9)
+size = Vector2(106, 9)
 
 [node name="Nivel1_1" type="Node2D"]
 
@@ -71,7 +71,7 @@ one_way_collision = true
 [node name="StaticBody2D" type="StaticBody2D" parent="Plataformas"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D"]
-position = Vector2(264.5, 275.5)
+position = Vector2(264, 275.5)
 shape = SubResource("RectangleShape2D_i43ji")
 one_way_collision = true
 
@@ -79,7 +79,7 @@ one_way_collision = true
 position = Vector2(116.25, 17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D3"]
-position = Vector2(-16.25, 161)
+position = Vector2(34.75, 162)
 shape = SubResource("RectangleShape2D_i43ji")
 one_way_collision = true
 
