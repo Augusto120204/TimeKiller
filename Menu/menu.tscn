@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://8burdj8naraj"]
+
+[ext_resource type="Script" uid="uid://pi8vtrllpfsp" path="res://Menu/menu.gd" id="1_raj00"]
+[ext_resource type="Texture2D" uid="uid://cmgacg3ljlom1" path="res://images/Home.jpg" id="2_8w4re"]
+[ext_resource type="Texture2D" uid="uid://s8aa8cbmjly5" path="res://images/BP-Jugar-NoPulsado.png" id="3_tf6kh"]
+[ext_resource type="Texture2D" uid="uid://ge28e5uk60kc" path="res://images/BP-Jugar-Pulsado.png" id="4_mf1wf"]
+[ext_resource type="Texture2D" uid="uid://cypjf825xbhmj" path="res://images/BP-Config-NoPulsado.png" id="5_xuj3a"]
+[ext_resource type="Texture2D" uid="uid://bp3d0s1d4fg8j" path="res://images/BP-Config-Pulsado.png" id="6_0k1h5"]
+[ext_resource type="Texture2D" uid="uid://cwxu584qm4jh3" path="res://images/BP-Salir-NoPulsado.png" id="7_cotva"]
+[ext_resource type="Texture2D" uid="uid://b1alwghfi65hj" path="res://images/BP-Salir-Pulsado.png" id="8_2p233"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6voe"]
+atlas = ExtResource("3_tf6kh")
+region = Rect2(-0.219994, 4.30889, 199.781, 84.469)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s5no"]
+atlas = ExtResource("5_xuj3a")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3yle"]
+atlas = ExtResource("7_cotva")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_raj00")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 2.0
+offset_right = 1158.0
+offset_bottom = 650.0
+texture = ExtResource("2_8w4re")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -117.5
+offset_right = 100.0
+offset_bottom = 117.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Jugar" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = SubResource("AtlasTexture_w6voe")
+texture_pressed = ExtResource("4_mf1wf")
+
+[node name="Configuraciones" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_5s5no")
+texture_pressed = ExtResource("6_0k1h5")
+
+[node name="Salir" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_v3yle")
+texture_pressed = ExtResource("8_2p233")
+
+[connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
