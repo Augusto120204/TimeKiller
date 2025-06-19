@@ -1,45 +1,47 @@
-class_name Player
+class_name Personaje
 extends CharacterBody2D
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@export var gravity = 115
-@export var jump_speed = 100
-@export var speed = 150
+signal player_hit
+signal player_hp_up
 
-const ESCENA_BULLET = preload("res://personaje/bullet.tscn")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var gravity = 950
+@export var jump_speed = 300
+@export var speed = 150
 
 var current_state = ''
 
 func _physics_process(delta: float) -> void:
-	#Extraer la posicion del mouse
+	# Extraer la posicion del mouse y del jugador
 	var mouse_pos = get_global_mouse_position()
 	var mouse_dir = (mouse_pos - $Sprite2D.global_position).normalized()
+	var sprite_x = $Sprite2D.global_position.x
+	# Obtener -1 en caso de que el mouse este por detras del personaje para las rotaciones
+	var mouse_dir_value = -1 if mouse_pos.x < sprite_x else 1
 	# Mover el brazo
 	$ArmNode.rotation = mouse_dir.angle()
-	var sprite_x = $Sprite2D.global_position.x
-	var mouse_dir_value = -1 if mouse_pos.x < sprite_x else 1
 	$ArmNode.scale.y = mouse_dir_value
+	# Mover al personaje
 	$Sprite2D.scale.x = mouse_dir_value
 	
 	# Obtener dirección del input
 	var direction = Input.get_axis("izquierda", "derecha")
-	
 	# Limitar movimiento hacia la izquierda si el personaje ya está en x <= 0
 	if direction < 0 and global_position.x <= 0:
 		direction = 0
-	
+	# Mover al personaje
 	velocity.x = direction * speed
-	
-	var shoot_pressed = Input.is_action_just_pressed("shoot")
-	if(shoot_pressed):
-		$ArmNode/Pistol/AnimationPlayer.play("shoot")
-		shoot(mouse_dir)
 	
 	#Gravedad
 	if not is_on_floor():
 		velocity.y = velocity.y + gravity * delta
 	#Saltar
 	var jump_pressed = Input.is_action_just_pressed("salto")
+	
+	# Detectar disparo y llamar a la animacion
+	var shoot_pressed = Input.is_action_pressed("shoot")
+	if(shoot_pressed):
+		shoot()
 	
 	#Manejar animaciones
 	if jump_pressed and is_on_floor():
@@ -60,19 +62,16 @@ func set_animation(action: String) -> void:
 		current_state = action
 		animation_player.play(action)
 
-func shoot(dir):
-	var instancia_bullet = ESCENA_BULLET.instantiate()
-	
-	# Posición inicial de la bala = posición global del sprite
-	instancia_bullet.global_position = $ArmNode/Pistol.global_position
-	
-	# Dirección hacia el mouse
-	var mouse_pos = get_global_mouse_position()
-	instancia_bullet.direction = dir
-	instancia_bullet.margin = Vector4(
-		$Sprite2D.global_position.x - 500,
-		$Sprite2D.global_position.y - 500,
-		$Sprite2D.global_position.x + 500,
-		$Sprite2D.global_position.y + 500
-	)
-	get_tree().current_scene.add_child(instancia_bullet)
+func shoot():
+	if $ArmNode/Rifle/AnimationPlayer:
+		$ArmNode/Rifle/AnimationPlayer.play("shoot")
+	if $ArmNode/Pistol/AnimationPlayer:
+		$ArmNode/Pistol/AnimationPlayer.play("shoot")
+
+func hp_up():
+	print("+ 1 vida")
+	player_hp_up.emit()
+
+func hp_down():
+	print("- 1 vida")
+	player_hit.emit()

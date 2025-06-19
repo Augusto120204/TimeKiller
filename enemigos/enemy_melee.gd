@@ -22,6 +22,10 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+func hp_down():
+	print("- 1 vida del enemigo a melee")
+	queue_free()
+
 func atack():
 	# Dirección hacia el jugador
 	var jugador_position = jugador.position

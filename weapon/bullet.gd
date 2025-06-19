@@ -13,3 +13,8 @@ func _process(delta: float) -> void:
 	# Comprobar si está fuera del margen
 	if position.x < margin.x or position.x > margin.z or position.y < margin.y or position.y > margin.w:
 		queue_free()
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.has_method("hp_down"):
+		body.hp_down()
+		queue_free()

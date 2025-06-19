@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var speed = 100
 @export var jugador:CharacterBody2D
 
-const ESCENA_BULLET = preload("res://personaje/bullet.tscn")
+const ESCENA_BULLET = preload("res://weapon/enemy_bullet.tscn")
 
 var jugador_detectado = false
 
@@ -39,6 +39,9 @@ func shoot():
 	)
 	get_tree().current_scene.add_child(instancia_bullet)
 
+func hp_down():
+	print("- 1 vida del enemigo a rango")
+	queue_free()
 
 func _on_timer_timeout() -> void:
 	if jugador and jugador_detectado:

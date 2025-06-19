@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bola3risn2lc5"]
+[gd_scene load_steps=7 format=3 uid="uid://bola3risn2lc5"]
 
 [ext_resource type="Texture2D" uid="uid://ccli76t0xh5lh" path="res://assets/nivel2/background/background.png" id="1_osgfd"]
 [ext_resource type="PackedScene" uid="uid://dq7a63trd57k8" path="res://personaje/personaje.tscn" id="2_5vq46"]
+[ext_resource type="PackedScene" uid="uid://biy877qa37afy" path="res://plataforma/tank.tscn" id="2_ns3yi"]
 [ext_resource type="Script" uid="uid://xoqbjrlnm4n1" path="res://niveles/camera_2d.gd" id="3_ns3yi"]
 [ext_resource type="PackedScene" uid="uid://dqvw3nmrc4iup" path="res://item/puerta.tscn" id="4_5vq46"]
 
@@ -21,6 +22,9 @@ texture = ExtResource("1_osgfd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background/StaticBody2D"]
 position = Vector2(300, 220)
 shape = SubResource("RectangleShape2D_c7qb4")
+
+[node name="Tank" parent="." instance=ExtResource("2_ns3yi")]
+position = Vector2(490, 173)
 
 [node name="Personaje" parent="." instance=ExtResource("2_5vq46")]
 position = Vector2(40, 186)

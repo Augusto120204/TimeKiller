@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn4sr0kyflrum"]
+
+[ext_resource type="Script" uid="uid://ugh3xthc6byo" path="res://ui/hud.gd" id="1_7ihmi"]
+[ext_resource type="Texture2D" uid="uid://b7q0jgefy7eag" path="res://assets/HUD/UI_Flat_Select01a_1.png" id="1_546lt"]
+[ext_resource type="Texture2D" uid="uid://3i5dxqg3t8d5" path="res://assets/items/guns/Pistol.png" id="2_7ihmi"]
+[ext_resource type="Texture2D" uid="uid://kcakfexjvb4j" path="res://assets/HUD/GUISprite.png" id="3_en2x2"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_7ihmi")
+
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2(1.5, 1.5)
+
+[node name="WeaponContainer" type="Sprite2D" parent="Node2D"]
+position = Vector2(23, 38)
+texture = ExtResource("1_546lt")
+
+[node name="Weapon" type="Sprite2D" parent="Node2D/WeaponContainer"]
+texture = ExtResource("2_7ihmi")
+hframes = 24
+
+[node name="Hp1" type="Sprite2D" parent="Node2D"]
+position = Vector2(72, 38)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en2x2")
+hframes = 20
+vframes = 14
+frame = 21
+
+[node name="Hp2" type="Sprite2D" parent="Node2D"]
+position = Vector2(110, 38)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en2x2")
+hframes = 20
+vframes = 14
+frame = 21
+
+[node name="Hp3" type="Sprite2D" parent="Node2D"]
+position = Vector2(148, 38)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en2x2")
+hframes = 20
+vframes = 14
+frame = 21

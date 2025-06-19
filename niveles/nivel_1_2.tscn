@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://er82d0bhm3h1"]
+[gd_scene load_steps=8 format=3 uid="uid://er82d0bhm3h1"]
 
 [ext_resource type="Texture2D" uid="uid://6wn5tayhsowk" path="res://assets/nivel1/background/background_2.png" id="1_6t5jo"]
 [ext_resource type="PackedScene" uid="uid://dq7a63trd57k8" path="res://personaje/personaje.tscn" id="2_47on8"]
 [ext_resource type="Script" uid="uid://bj8aolh5w08eu" path="res://camera_1_2.gd" id="3_cjsqv"]
 [ext_resource type="PackedScene" uid="uid://dqvw3nmrc4iup" path="res://item/puerta.tscn" id="4_47on8"]
+[ext_resource type="PackedScene" uid="uid://cn4sr0kyflrum" path="res://ui/hud.tscn" id="5_cjsqv"]
+[ext_resource type="PackedScene" uid="uid://ce5wyoh03axt7" path="res://enemigos/enemy_shoot.tscn" id="6_djabo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djabo"]
 size = Vector2(600, 20)
@@ -33,3 +35,9 @@ object_to_follow = NodePath("../Personaje")
 [node name="Puerta" parent="." instance=ExtResource("4_47on8")]
 position = Vector2(560, 251)
 new_scene_path = "res://niveles/nivel_2_1.tscn"
+
+[node name="HUD" parent="." instance=ExtResource("5_cjsqv")]
+
+[node name="EnemyShoot" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("6_djabo")]
+position = Vector2(273, 226)
+jugador = NodePath("../Personaje")

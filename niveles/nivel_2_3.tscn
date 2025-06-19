@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwjwjvqincsf2"]
+[gd_scene load_steps=7 format=3 uid="uid://dwjwjvqincsf2"]
 
 [ext_resource type="Texture2D" uid="uid://bt85cuxbrp1rm" path="res://assets/nivel2/background/background_3.png" id="1_dg45a"]
 [ext_resource type="PackedScene" uid="uid://dq7a63trd57k8" path="res://personaje/personaje.tscn" id="2_flhwe"]
 [ext_resource type="Script" uid="uid://dnoggb3ym365c" path="res://camera_2_3.gd" id="3_4c5dl"]
 [ext_resource type="PackedScene" uid="uid://dqvw3nmrc4iup" path="res://item/puerta.tscn" id="4_flhwe"]
+[ext_resource type="PackedScene" uid="uid://b16tdo8xmrdn0" path="res://item/hp_up.tscn" id="5_4c5dl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbl20"]
 size = Vector2(600, 20)
@@ -32,3 +33,7 @@ object_to_follow = NodePath("../Personaje")
 
 [node name="Puerta" parent="." instance=ExtResource("4_flhwe")]
 position = Vector2(575, 232)
+
+[node name="HpUp" parent="." instance=ExtResource("5_4c5dl")]
+position = Vector2(98, 216)
+texture_path = "res://assets/items/healt/potion.png"
