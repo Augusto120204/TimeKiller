@@ -1,48 +1,56 @@
-[gd_scene load_steps=10 format=3 uid="uid://1jnhud00ul1b"]
+[gd_scene load_steps=12 format=3 uid="uid://1jnhud00ul1b"]
 
 [ext_resource type="Texture2D" uid="uid://dqnpdjwixosng" path="res://images/BaseSecreta.jpg" id="1_3sy43"]
 [ext_resource type="Texture2D" uid="uid://btipecen8j423" path="res://images/Nivel1Button.png" id="2_rkns0"]
-[ext_resource type="Texture2D" uid="uid://doh64g0obahkx" path="res://images/sprite.png" id="3_q162i"]
+[ext_resource type="Texture2D" uid="uid://b3r0uleysntsf" path="res://images/Nivel2Button.png" id="3_rkns0"]
+[ext_resource type="Texture2D" uid="uid://bq1ydjytlf4vt" path="res://assets/character/idle/idle1.png" id="4_jjf7d"]
+[ext_resource type="Texture2D" uid="uid://c8urrok8vlyek" path="res://assets/character/idle/idle2.png" id="6_88rhv"]
+[ext_resource type="Texture2D" uid="uid://bt5545cn075j1" path="res://assets/character/idle/idle3.png" id="7_o1qew"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gux0g"]
 atlas = ExtResource("2_rkns0")
 region = Rect2(0, 58.5, 450, 177)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jjf7d"]
-atlas = ExtResource("3_q162i")
-region = Rect2(90, 110, 90, 110)
+[sub_resource type="AtlasTexture" id="AtlasTexture_q162i"]
+atlas = ExtResource("3_rkns0")
+region = Rect2(0, 106.5, 446, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_88rhv"]
-atlas = ExtResource("3_q162i")
-region = Rect2(180, 110, 90, 110)
+[sub_resource type="Animation" id="Animation_i3gco"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_jjf7d")]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o1qew"]
-atlas = ExtResource("3_q162i")
-region = Rect2(270, 110, 90, 110)
+[sub_resource type="Animation" id="Animation_o8q5q"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_jjf7d"), ExtResource("6_88rhv"), ExtResource("7_o1qew"), ExtResource("7_o1qew")]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o8q5q"]
-atlas = ExtResource("3_q162i")
-region = Rect2(360, 110, 90, 110)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_i3gco"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jjf7d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_88rhv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o1qew")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o8q5q")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ik4x6"]
+_data = {
+&"RESET": SubResource("Animation_i3gco"),
+&"idle": SubResource("Animation_o8q5q")
+}
 
 [node name="Seleccionar NIvel" type="Control"]
 layout_mode = 3
@@ -77,9 +85,9 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -567.0
-offset_top = 158.0
+offset_top = 129.0
 offset_right = -117.0
-offset_bottom = -94.0
+offset_bottom = -123.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 50
@@ -91,10 +99,15 @@ texture_normal = SubResource("AtlasTexture_gux0g")
 
 [node name="TextureButton2" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
+texture_normal = SubResource("AtlasTexture_q162i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(324, 467)
+scale = Vector2(6.85938, 6.60938)
+texture = ExtResource("4_jjf7d")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
-position = Vector2(299, 488)
-scale = Vector2(2.5, 2.5)
-sprite_frames = SubResource("SpriteFrames_i3gco")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_ik4x6")
+}
+autoplay = "idle"
