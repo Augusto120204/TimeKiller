@@ -15,6 +15,10 @@ run/main_scene="uid://8burdj8naraj"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+BocinaPrincipal="*res://assets/music/bocina_principal.tscn"
+
 [dotnet]
 
 project/assembly_name="TimeKiller"

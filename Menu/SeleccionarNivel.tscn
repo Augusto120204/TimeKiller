@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://1jnhud00ul1b"]
 
-[ext_resource type="Texture2D" uid="uid://dqnpdjwixosng" path="res://images/BaseSecreta.jpg" id="1_3sy43"]
-[ext_resource type="Texture2D" uid="uid://btipecen8j423" path="res://images/Nivel1Button.png" id="2_rkns0"]
-[ext_resource type="Texture2D" uid="uid://b3r0uleysntsf" path="res://images/Nivel2Button.png" id="3_rkns0"]
+[ext_resource type="Texture2D" uid="uid://dqnpdjwixosng" path="res://assets/menuOptions/BaseSecreta.jpg" id="1_3sy43"]
+[ext_resource type="Texture2D" uid="uid://btipecen8j423" path="res://assets/menuOptions/Nivel1Button.png" id="2_rkns0"]
+[ext_resource type="Texture2D" uid="uid://b3r0uleysntsf" path="res://assets/menuOptions/Nivel2Button.png" id="3_rkns0"]
 [ext_resource type="Texture2D" uid="uid://bq1ydjytlf4vt" path="res://assets/character/idle/idle1.png" id="4_jjf7d"]
 [ext_resource type="Texture2D" uid="uid://c8urrok8vlyek" path="res://assets/character/idle/idle2.png" id="6_88rhv"]
 [ext_resource type="Texture2D" uid="uid://bt5545cn075j1" path="res://assets/character/idle/idle3.png" id="7_o1qew"]

@@ -14,3 +14,11 @@ func _on_salir_pressed() -> void:
 
 func _on_configuraciones_pressed() -> void:
 	get_tree().change_scene_to_file("res://Menu/settings.tscn")
+
+var sonidoFondo = preload("res://assets/music/sb_indreams(chosic.com).mp3")
+
+func _ready():
+	BocinaPrincipal.stream = sonidoFondo
+	BocinaPrincipal.play()
+	pass
+	

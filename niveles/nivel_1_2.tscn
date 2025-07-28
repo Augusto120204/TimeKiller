@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bj8aolh5w08eu" path="res://camera_1_2.gd" id="3_cjsqv"]
 [ext_resource type="PackedScene" uid="uid://dqvw3nmrc4iup" path="res://item/puerta.tscn" id="4_47on8"]
 [ext_resource type="PackedScene" uid="uid://cn4sr0kyflrum" path="res://ui/hud.tscn" id="5_cjsqv"]
-[ext_resource type="PackedScene" uid="uid://ce5wyoh03axt7" path="res://enemigos/enemy_shoot.tscn" id="6_djabo"]
+[ext_resource type="PackedScene" uid="uid://ce5wyoh03axt7" path="res://assets/enemigos/enemy_shoot.tscn" id="6_djabo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djabo"]
 size = Vector2(600, 20)

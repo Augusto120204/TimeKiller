@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://gsncamps7vot" path="res://plataforma/suelo.tscn" id="1_2xoau"]
 [ext_resource type="PackedScene" uid="uid://dq7a63trd57k8" path="res://personaje/personaje.tscn" id="2_56la6"]
-[ext_resource type="PackedScene" uid="uid://ce5wyoh03axt7" path="res://enemigos/enemy_shoot.tscn" id="3_k0sg5"]
-[ext_resource type="PackedScene" uid="uid://7lvph7sm4qct" path="res://enemigos/enemy_melee.tscn" id="4_56la6"]
+[ext_resource type="PackedScene" uid="uid://ce5wyoh03axt7" path="res://assets/enemigos/enemy_shoot.tscn" id="3_k0sg5"]
+[ext_resource type="PackedScene" uid="uid://7lvph7sm4qct" path="res://assets/enemigos/enemy_melee.tscn" id="4_56la6"]
 
 [node name="Node2D" type="Node2D"]
 
