@@ -6,7 +6,6 @@ signal player_hp_up
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hit_sound: AudioStreamPlayer2D = $HitSound
-@onready var gun_sound: AudioStreamPlayer2D = $GunSound
 @export var gravity = 950
 @export var jump_speed = 300
 @export var speed = 150
