@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://1jnhud00ul1b"]
+[gd_scene load_steps=13 format=3 uid="uid://1jnhud00ul1b"]
 
 [ext_resource type="Texture2D" uid="uid://dqnpdjwixosng" path="res://assets/menuOptions/BaseSecreta.jpg" id="1_3sy43"]
+[ext_resource type="Script" uid="uid://d7aw8jilcoo" path="res://Menu/seleccionar_nivel.gd" id="1_jjf7d"]
 [ext_resource type="Texture2D" uid="uid://btipecen8j423" path="res://assets/menuOptions/Nivel1Button.png" id="2_rkns0"]
 [ext_resource type="Texture2D" uid="uid://b3r0uleysntsf" path="res://assets/menuOptions/Nivel2Button.png" id="3_rkns0"]
 [ext_resource type="Texture2D" uid="uid://bq1ydjytlf4vt" path="res://assets/character/idle/idle1.png" id="4_jjf7d"]
@@ -59,6 +60,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jjf7d")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -111,3 +113,24 @@ libraries = {
 &"": SubResource("AnimationLibrary_ik4x6")
 }
 autoplay = "idle"
+
+[node name="Volver" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Back" type="Button" parent="Volver"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.036
+anchor_top = 0.235
+anchor_right = 0.036
+anchor_bottom = 0.235
+offset_left = 13.56
+offset_top = 3.6
+offset_right = 94.56
+offset_bottom = 37.6
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/Nivel1" to="." method="_on_nivel_1_pressed"]
+[connection signal="pressed" from="Volver/Back" to="." method="_on_back_pressed"]

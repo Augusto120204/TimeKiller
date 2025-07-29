@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbht5yxusyuw4"]
+[gd_scene load_steps=7 format=3 uid="uid://dbht5yxusyuw4"]
 
 [ext_resource type="Texture2D" uid="uid://3i5dxqg3t8d5" path="res://assets/items/guns/Pistol.png" id="1_mctam"]
 [ext_resource type="Script" uid="uid://b8p5psqldb4jt" path="res://weapon/pistol.gd" id="2_57aec"]
+[ext_resource type="AudioStream" uid="uid://hq0ij3an0tsq" path="res://assets/soundEffects/gun-sound.mp3" id="3_45g0q"]
 
 [sub_resource type="Animation" id="Animation_57aec"]
 length = 0.001
@@ -64,3 +65,8 @@ script = ExtResource("2_57aec")
 libraries = {
 &"": SubResource("AnimationLibrary_45g0q")
 }
+
+[node name="GunSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_45g0q")
+volume_db = -8.914
+pitch_scale = 1.35

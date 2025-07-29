@@ -3,6 +3,8 @@ extends Sprite2D
 
 const ESCENA_BULLET = preload("res://weapon/player_bullet.tscn")
 
+@onready var gun_sound: AudioStreamPlayer2D = $GunSound
+
 func shoot():
 	var instancia_bullet = ESCENA_BULLET.instantiate()
 	
@@ -20,3 +22,4 @@ func shoot():
 		$".".global_position.y + 500
 	)
 	get_tree().current_scene.add_child(instancia_bullet)
+	gun_sound.play(0.2)

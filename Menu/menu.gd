@@ -18,7 +18,6 @@ func _on_configuraciones_pressed() -> void:
 var sonidoFondo = preload("res://assets/music/sb_indreams(chosic.com).mp3")
 
 func _ready():
-	BocinaPrincipal.stream = sonidoFondo
-	BocinaPrincipal.play()
-	pass
-	
+	if not BocinaPrincipal.playing:
+		BocinaPrincipal.stream = preload("res://assets/music/sb_indreams(chosic.com).mp3")
+		BocinaPrincipal.play()

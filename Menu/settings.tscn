@@ -6,6 +6,8 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_yeaht"]
 atlas = ExtResource("1_fnv2m")
 
+[sub_resource type="Theme" id="Theme_yeaht"]
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_yeaht"]
 color = Color(1, 1, 1, 1)
 thickness = 6
@@ -17,8 +19,6 @@ thickness = 6
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_emm1k"]
 color = Color(0, 0, 0.6, 1)
 thickness = 6
-
-[sub_resource type="Theme" id="Theme_yeaht"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -55,10 +55,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -343.0
-offset_top = -209.0
-offset_right = 331.0
-offset_bottom = 237.0
+offset_left = -375.0
+offset_top = -204.0
+offset_right = 299.0
+offset_bottom = 242.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -66,10 +66,12 @@ grow_vertical = 2
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 51.0
+offset_left = 77.0
+offset_top = 11.0
+offset_right = 77.0
+offset_bottom = 62.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
-text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -80,52 +82,87 @@ anchor_left = 0.036
 anchor_top = 0.235
 anchor_right = 0.036
 anchor_bottom = 0.235
-offset_left = -24.264
-offset_top = -11.985
-offset_right = -16.264
-offset_bottom = -3.985
+offset_left = -93.264
+offset_top = -16.985
+offset_right = -12.264
+offset_bottom = 17.015
 text = "Back"
 
-[node name="Label2" type="VBoxContainer" parent="Options"]
-layout_mode = 0
-offset_left = 84.0
-offset_top = 186.0
-offset_right = 224.0
-offset_bottom = 292.0
+[node name="Options" type="Label" parent="Options/Label"]
+offset_left = 212.0
+offset_top = 26.0
+offset_right = 274.0
+offset_bottom = 45.0
+text = "Options"
+
+[node name="Pantalla" type="Control" parent="Options"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="VBoxContainer" parent="Options/Pantalla"]
+layout_mode = 2
+offset_left = 99.0
+offset_top = 273.0
+offset_right = 188.0
+offset_bottom = 314.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="ModoPantalla" type="Label" parent="Options/Label2"]
-layout_mode = 2
-text = "AUDIO"
-
-[node name="Fullscreen" type="Label" parent="Options/Label2"]
+[node name="Fullscreen" type="Label" parent="Options/Pantalla/Label"]
 layout_mode = 2
 text = "PANTALLA 
 COMPLETA"
 
-[node name="Options" type="VBoxContainer" parent="Options"]
+[node name="CheckPantalla" type="VBoxContainer" parent="Options/Pantalla"]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 268.0
+offset_right = 436.0
+offset_bottom = 348.0
+
+[node name="CheckBox" type="CheckBox" parent="Options/Pantalla/CheckPantalla"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_yeaht")
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+icon_alignment = 1
+
+[node name="Audio" type="Control" parent="Options"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Options" type="VBoxContainer" parent="Options/Audio"]
 layout_mode = 2
 offset_left = 232.0
-offset_top = 189.0
+offset_top = 228.0
 offset_right = 532.0
-offset_bottom = 233.0
+offset_bottom = 272.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="HSlider" type="HSlider" parent="Options/Options"]
+[node name="HSlider" type="HSlider" parent="Options/Audio/Options"]
 layout_mode = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_yeaht")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_omxsy")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_emm1k")
 value = 50.0
 
-[node name="CheckBox" type="CheckBox" parent="Options/Options"]
-layout_mode = 2
+[node name="Label" type="VBoxContainer" parent="Options/Audio"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 225.0
+offset_right = 154.0
+offset_bottom = 241.0
 size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = SubResource("Theme_yeaht")
+size_flags_vertical = 8
+
+[node name="Audio" type="Label" parent="Options/Audio/Label"]
+layout_mode = 2
+text = "AUDIO"
 
 [connection signal="pressed" from="Options/Label/Back" to="." method="_on_back_pressed"]
-[connection signal="value_changed" from="Options/Options/HSlider" to="." method="_on_h_slider_value_changed"]
-[connection signal="toggled" from="Options/Options/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="toggled" from="Options/Pantalla/CheckPantalla/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="value_changed" from="Options/Audio/Options/HSlider" to="." method="_on_h_slider_value_changed"]

@@ -5,6 +5,8 @@ signal player_hit
 signal player_hp_up
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var hit_sound: AudioStreamPlayer2D = $HitSound
+@onready var gun_sound: AudioStreamPlayer2D = $GunSound
 @export var gravity = 950
 @export var jump_speed = 300
 @export var speed = 150
@@ -68,10 +70,13 @@ func shoot():
 	if $ArmNode/Pistol/AnimationPlayer:
 		$ArmNode/Pistol/AnimationPlayer.play("shoot")
 
+
 func hp_up():
 	print("+ 1 vida")
 	player_hp_up.emit()
+	
 
 func hp_down():
 	print("- 1 vida")
+	hit_sound.play(0.25)
 	player_hit.emit()
