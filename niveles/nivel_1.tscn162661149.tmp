@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4xij4vvk8vtj"]
+[gd_scene load_steps=15 format=3 uid="uid://c4xij4vvk8vtj"]
 
 [ext_resource type="PackedScene" uid="uid://dq7a63trd57k8" path="res://personaje/personaje.tscn" id="1_eu3iu"]
 [ext_resource type="Script" uid="uid://bevrq6u871fdb" path="res://niveles/nivel_1.gd" id="1_vdios"]
@@ -13,7 +13,6 @@
 [ext_resource type="AudioStream" uid="uid://bgllwyqgp2rfi" path="res://assets/soundEffects/hp_up.mp3" id="8_najtw"]
 [ext_resource type="PackedScene" uid="uid://b6t5yegsg8qqh" path="res://controller/game_controller.tscn" id="8_yi6tr"]
 [ext_resource type="PackedScene" uid="uid://ce5wyoh03axt7" path="res://assets/enemigos/enemy_shoot.tscn" id="9_uxua8"]
-[ext_resource type="PackedScene" uid="uid://7lvph7sm4qct" path="res://assets/enemigos/enemy_melee.tscn" id="14_2or2j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i43ji"]
 size = Vector2(106, 9)
@@ -137,10 +136,6 @@ position = Vector2(298, 288)
 
 [node name="EnemyShoot5" parent="." instance=ExtResource("9_uxua8")]
 position = Vector2(127, 158)
-
-[node name="EnemyMelee" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("14_2or2j")]
-position = Vector2(660, 283)
-jugador = NodePath("../Personaje")
 
 [connection signal="player_hit" from="Personaje" to="HUD" method="_on_personaje_player_hit"]
 [connection signal="player_hit" from="Personaje" to="GameController" method="_on_personaje_player_hit"]

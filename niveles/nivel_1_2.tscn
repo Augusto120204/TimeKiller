@@ -49,6 +49,5 @@ new_scene_path = "res://niveles/nivel_2_1.tscn"
 
 [node name="HUD" parent="." instance=ExtResource("5_cjsqv")]
 
-[node name="EnemyShoot" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("6_djabo")]
+[node name="EnemyShoot" parent="." instance=ExtResource("6_djabo")]
 position = Vector2(273, 226)
-jugador = NodePath("../Personaje")
