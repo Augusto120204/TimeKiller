@@ -6,6 +6,7 @@ signal player_hp_up
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hit_sound: AudioStreamPlayer2D = $HitSound
+@onready var hp_up_sound: AudioStreamPlayer2D = $HpUpSound
 @export var gravity = 950
 @export var jump_speed = 300
 @export var speed = 150
@@ -72,6 +73,7 @@ func shoot():
 
 func hp_up():
 	print("+ 1 vida")
+	hp_up_sound.play()
 	player_hp_up.emit()
 	
 

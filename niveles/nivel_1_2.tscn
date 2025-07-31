@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://er82d0bhm3h1"]
+[gd_scene load_steps=10 format=3 uid="uid://er82d0bhm3h1"]
 
 [ext_resource type="Texture2D" uid="uid://6wn5tayhsowk" path="res://assets/nivel1/background/background_2.png" id="1_6t5jo"]
 [ext_resource type="PackedScene" uid="uid://dq7a63trd57k8" path="res://personaje/personaje.tscn" id="2_47on8"]
 [ext_resource type="Script" uid="uid://bj8aolh5w08eu" path="res://camera_1_2.gd" id="3_cjsqv"]
+[ext_resource type="AudioStream" uid="uid://74vr5jd42nnb" path="res://assets/soundEffects/hit.mp3" id="3_yt7av"]
+[ext_resource type="AudioStream" uid="uid://hq0ij3an0tsq" path="res://assets/soundEffects/gun-sound.mp3" id="4_6un31"]
 [ext_resource type="PackedScene" uid="uid://dqvw3nmrc4iup" path="res://item/puerta.tscn" id="4_47on8"]
 [ext_resource type="PackedScene" uid="uid://cn4sr0kyflrum" path="res://ui/hud.tscn" id="5_cjsqv"]
 [ext_resource type="PackedScene" uid="uid://ce5wyoh03axt7" path="res://assets/enemigos/enemy_shoot.tscn" id="6_djabo"]
@@ -25,6 +27,15 @@ shape = SubResource("RectangleShape2D_djabo")
 
 [node name="Personaje" parent="." instance=ExtResource("2_47on8")]
 position = Vector2(30, 241)
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Personaje"]
+stream = ExtResource("3_yt7av")
+pitch_scale = 1.76
+attenuation = 0.554785
+
+[node name="GunSound" type="AudioStreamPlayer2D" parent="Personaje"]
+stream = ExtResource("4_6un31")
+pitch_scale = 1.95
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("object_to_follow")]
 position = Vector2(194, 175)
