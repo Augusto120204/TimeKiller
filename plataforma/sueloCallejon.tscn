@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://t5rjj48qhwp8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wiepx"]
+size = Vector2(881, 17)
+
+[node name="Suelo" type="StaticBody2D"]
+collision_mask = 6
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(1, 4)
+scale = Vector2(0.553571, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 3.5)
+shape = SubResource("RectangleShape2D_wiepx")

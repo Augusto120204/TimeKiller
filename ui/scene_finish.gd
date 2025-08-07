@@ -1,14 +1,13 @@
 class_name SceneFinish
 extends CanvasLayer
 
-@export var scene_path = "res://niveles/nivel_1.tscn"
+@export var scene_path = "res://niveles/FKennedy_Start.tscn"
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	$ColorRect.process_mode = Node.PROCESS_MODE_ALWAYS
 	$ColorRect/VBoxContainer.process_mode = Node.PROCESS_MODE_ALWAYS
 	$ColorRect/VBoxContainer/Label.process_mode = Node.PROCESS_MODE_ALWAYS
-	$ColorRect/VBoxContainer/Button.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func set_title(title):
 	$ColorRect/VBoxContainer/Label.text = title

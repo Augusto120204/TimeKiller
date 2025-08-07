@@ -1,0 +1,126 @@
+[gd_scene load_steps=15 format=3 uid="uid://dxbumb1fwsa1q"]
+
+[ext_resource type="Texture2D" uid="uid://dio1snqssjj55" path="res://assets/nivel1/background/callejon.jpeg" id="1_4wuqg"]
+[ext_resource type="PackedScene" uid="uid://t5rjj48qhwp8" path="res://plataforma/sueloCallejon.tscn" id="2_k86rk"]
+[ext_resource type="PackedScene" uid="uid://dq7a63trd57k8" path="res://personaje/personaje.tscn" id="3_23t86"]
+[ext_resource type="AudioStream" uid="uid://74vr5jd42nnb" path="res://assets/soundEffects/hit.mp3" id="4_142ij"]
+[ext_resource type="AudioStream" uid="uid://hq0ij3an0tsq" path="res://assets/soundEffects/gun-sound.mp3" id="5_5228k"]
+[ext_resource type="AudioStream" uid="uid://bgllwyqgp2rfi" path="res://assets/soundEffects/hp_up.mp3" id="6_pgcbi"]
+[ext_resource type="Script" uid="uid://b0dc5phfnqbj1" path="res://niveles/camera_FKenedy.gd" id="7_4idcm"]
+[ext_resource type="PackedScene" uid="uid://dqvw3nmrc4iup" path="res://item/puerta.tscn" id="8_pgcbi"]
+[ext_resource type="PackedScene" uid="uid://b16tdo8xmrdn0" path="res://item/hp_up.tscn" id="9_t3cqu"]
+[ext_resource type="PackedScene" uid="uid://cn4sr0kyflrum" path="res://ui/hud.tscn" id="10_4idcm"]
+[ext_resource type="PackedScene" uid="uid://b6t5yegsg8qqh" path="res://controller/game_controller.tscn" id="11_oqrx5"]
+[ext_resource type="PackedScene" uid="uid://ce5wyoh03axt7" path="res://assets/enemigos/enemy_shoot.tscn" id="12_4idcm"]
+[ext_resource type="PackedScene" uid="uid://7lvph7sm4qct" path="res://assets/enemigos/enemy_melee.tscn" id="13_oqrx5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3cqu"]
+size = Vector2(79.9374, 4)
+
+[node name="FKennedyStart" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [-1.0]
+
+[node name="Backgrounds" type="Node2D" parent="."]
+position = Vector2(7, 0)
+
+[node name="Background" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(214.1, 230)
+scale = Vector2(0.346719, 0.264947)
+texture = ExtResource("1_4wuqg")
+
+[node name="Suelos" type="Node2D" parent="."]
+position = Vector2(-75, 92)
+
+[node name="Suelo" parent="Suelos" instance=ExtResource("2_k86rk")]
+position = Vector2(512.5, 223)
+
+[node name="Plataformas" type="Node2D" parent="."]
+position = Vector2(7, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D"]
+position = Vector2(281, 284)
+shape = SubResource("RectangleShape2D_t3cqu")
+one_way_collision = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Plataformas"]
+position = Vector2(0, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D2"]
+position = Vector2(299, 153)
+shape = SubResource("RectangleShape2D_t3cqu")
+one_way_collision = true
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Plataformas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D3"]
+position = Vector2(50, 268)
+shape = SubResource("RectangleShape2D_t3cqu")
+one_way_collision = true
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Plataformas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D4"]
+position = Vector2(-16, 294)
+shape = SubResource("RectangleShape2D_t3cqu")
+one_way_collision = true
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Plataformas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D5"]
+position = Vector2(372, 268)
+shape = SubResource("RectangleShape2D_t3cqu")
+one_way_collision = true
+
+[node name="Personaje" parent="." instance=ExtResource("3_23t86")]
+position = Vector2(46.5001, 283)
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Personaje"]
+stream = ExtResource("4_142ij")
+pitch_scale = 1.76
+attenuation = 0.554785
+
+[node name="GunSound" type="AudioStreamPlayer2D" parent="Personaje"]
+stream = ExtResource("5_5228k")
+pitch_scale = 1.95
+
+[node name="HpUpSound" type="AudioStreamPlayer2D" parent="Personaje"]
+position = Vector2(0, 2)
+stream = ExtResource("6_pgcbi")
+pitch_scale = 1.6
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("object_to_follow")]
+position = Vector2(192.5, 229)
+zoom = Vector2(3, 3)
+script = ExtResource("7_4idcm")
+object_to_follow = NodePath("../Personaje")
+
+[node name="Puerta" parent="." instance=ExtResource("8_pgcbi")]
+position = Vector2(436, 282)
+new_scene_path = "res://niveles/nivel_1.tscn"
+
+[node name="HpUp" parent="." instance=ExtResource("9_t3cqu")]
+position = Vector2(360, 260)
+
+[node name="HUD" parent="." instance=ExtResource("10_4idcm")]
+
+[node name="GameController" parent="." instance=ExtResource("11_oqrx5")]
+visible = false
+
+[node name="EnemyShoot2" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("12_4idcm")]
+position = Vector2(305, 177)
+jugador = NodePath("../Personaje")
+
+[node name="EnemyShoot3" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("12_4idcm")]
+position = Vector2(385, 247)
+jugador = NodePath("../Personaje")
+
+[node name="EnemyMelee" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("13_oqrx5")]
+position = Vector2(220, 289)
+jugador = NodePath("../Personaje")
+
+[connection signal="player_hit" from="Personaje" to="HUD" method="_on_personaje_player_hit"]
+[connection signal="player_hit" from="Personaje" to="GameController" method="_on_personaje_player_hit"]
+[connection signal="player_hp_up" from="Personaje" to="HUD" method="_on_personaje_player_hp_up"]
+[connection signal="player_hp_up" from="Personaje" to="GameController" method="_on_personaje_player_hp_up"]
