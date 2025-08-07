@@ -1,7 +1,6 @@
 extends Control
 
-
-
+@onready var brightness_overlay := $CanvasLayer/GlobalBrightnessOverlay
 
 func _on_jugar_pressed() -> void:
 	get_tree().change_scene_to_file("res://Menu/SeleccionarNivel.tscn")
@@ -13,7 +12,7 @@ func _on_salir_pressed() -> void:
 
 
 func _on_configuraciones_pressed() -> void:
-	get_tree().change_scene_to_file("res://Menu/settings.tscn")
+	get_tree().change_scene_to_file("res://Menu/settings_menu.tscn")
 
 var sonidoFondo = preload("res://assets/music/sb_indreams(chosic.com).mp3")
 
@@ -21,3 +20,7 @@ func _ready():
 	if not BocinaPrincipal.playing:
 		BocinaPrincipal.stream = preload("res://assets/music/sb_indreams(chosic.com).mp3")
 		BocinaPrincipal.play()
+		set_brightness(1.0)
+
+func set_brightness(value: float) -> void:
+	brightness_overlay.color.a = 1.0 - value

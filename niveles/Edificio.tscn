@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://rl42s3tlvdgo"]
+[gd_scene load_steps=18 format=3 uid="uid://rl42s3tlvdgo"]
 
 [ext_resource type="Texture2D" uid="uid://d25o5wqc5pxpm" path="res://assets/nivel1/background/InteriorLibreria.jpeg" id="1_nprw2"]
+[ext_resource type="Script" uid="uid://cv8a7l2edd3fu" path="res://niveles/edificio.gd" id="1_rv51o"]
 [ext_resource type="PackedScene" uid="uid://t5rjj48qhwp8" path="res://plataforma/sueloCallejon.tscn" id="2_wunaw"]
 [ext_resource type="PackedScene" uid="uid://dq7a63trd57k8" path="res://personaje/personaje.tscn" id="3_hsdfb"]
 [ext_resource type="PackedScene" uid="uid://cn3pxjpd6n05y" path="res://plataforma/rampa.tscn" id="3_rv51o"]
@@ -9,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bgllwyqgp2rfi" path="res://assets/soundEffects/hp_up.mp3" id="6_l5f2v"]
 [ext_resource type="PackedScene" uid="uid://dqvw3nmrc4iup" path="res://item/puerta.tscn" id="7_ra8g8"]
 [ext_resource type="Script" uid="uid://be3osc65vf6f6" path="res://niveles/camera_Interior.gd" id="8_1ehrb"]
+[ext_resource type="AudioStream" uid="uid://ddtjbye7nk60o" path="res://assets/soundEffects/hit_sound_effect.mp3" id="8_l5f2v"]
 [ext_resource type="PackedScene" uid="uid://b16tdo8xmrdn0" path="res://item/hp_up.tscn" id="8_nxugr"]
 [ext_resource type="PackedScene" uid="uid://cn4sr0kyflrum" path="res://ui/hud.tscn" id="9_ljgoj"]
 [ext_resource type="PackedScene" uid="uid://b6t5yegsg8qqh" path="res://controller/game_controller.tscn" id="10_d8onm"]
@@ -19,6 +21,7 @@
 size = Vector2(354.484, 3)
 
 [node name="Edificio" type="Node2D"]
+script = ExtResource("1_rv51o")
 
 [node name="Backgrounds" type="Node2D" parent="."]
 
@@ -77,6 +80,9 @@ pitch_scale = 1.95
 position = Vector2(-3, 34)
 stream = ExtResource("6_l5f2v")
 pitch_scale = 1.6
+
+[node name="HitDown" type="AudioStreamPlayer2D" parent="Personaje"]
+stream = ExtResource("8_l5f2v")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("object_to_follow")]
 position = Vector2(193, 395)

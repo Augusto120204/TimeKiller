@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 BocinaPrincipal="*res://assets/music/bocina_principal.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [dotnet]
 
 project/assembly_name="TimeKiller"

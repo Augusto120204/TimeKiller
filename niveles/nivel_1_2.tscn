@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://er82d0bhm3h1"]
+[gd_scene load_steps=11 format=3 uid="uid://er82d0bhm3h1"]
 
 [ext_resource type="Texture2D" uid="uid://6wn5tayhsowk" path="res://assets/nivel1/background/background_2.png" id="1_6t5jo"]
 [ext_resource type="PackedScene" uid="uid://dq7a63trd57k8" path="res://personaje/personaje.tscn" id="2_47on8"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://74vr5jd42nnb" path="res://assets/soundEffects/hit.mp3" id="3_yt7av"]
 [ext_resource type="AudioStream" uid="uid://hq0ij3an0tsq" path="res://assets/soundEffects/gun-sound.mp3" id="4_6un31"]
 [ext_resource type="PackedScene" uid="uid://dqvw3nmrc4iup" path="res://item/puerta.tscn" id="4_47on8"]
+[ext_resource type="AudioStream" uid="uid://ddtjbye7nk60o" path="res://assets/soundEffects/hit_sound_effect.mp3" id="5_6un31"]
 [ext_resource type="PackedScene" uid="uid://cn4sr0kyflrum" path="res://ui/hud.tscn" id="5_cjsqv"]
 [ext_resource type="PackedScene" uid="uid://ce5wyoh03axt7" path="res://assets/enemigos/enemy_shoot.tscn" id="6_djabo"]
 
@@ -36,6 +37,9 @@ attenuation = 0.554785
 [node name="GunSound" type="AudioStreamPlayer2D" parent="Personaje"]
 stream = ExtResource("4_6un31")
 pitch_scale = 1.95
+
+[node name="HitDown" type="AudioStreamPlayer2D" parent="Personaje"]
+stream = ExtResource("5_6un31")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("object_to_follow")]
 position = Vector2(194, 175)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://qpri3imt30fo"]
+[gd_scene load_steps=17 format=3 uid="uid://qpri3imt30fo"]
 
+[ext_resource type="Script" uid="uid://c87yhedwe15ho" path="res://niveles/plaza_dealey.gd" id="1_iop4l"]
 [ext_resource type="Texture2D" uid="uid://b8jokwtetgc4c" path="res://assets/nivel1/background/plazaDealey.jpeg" id="1_xg7rb"]
 [ext_resource type="PackedScene" uid="uid://t5rjj48qhwp8" path="res://plataforma/sueloCallejon.tscn" id="2_iop4l"]
 [ext_resource type="PackedScene" uid="uid://dq7a63trd57k8" path="res://personaje/personaje.tscn" id="3_hkaay"]
@@ -7,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://hq0ij3an0tsq" path="res://assets/soundEffects/gun-sound.mp3" id="5_awjgi"]
 [ext_resource type="AudioStream" uid="uid://bgllwyqgp2rfi" path="res://assets/soundEffects/hp_up.mp3" id="6_3vnfk"]
 [ext_resource type="Script" uid="uid://b8kllhrxu42kh" path="res://niveles/camera_PlazaDealey.gd" id="7_xg7rb"]
+[ext_resource type="AudioStream" uid="uid://ddtjbye7nk60o" path="res://assets/soundEffects/hit_sound_effect.mp3" id="8_hkaay"]
 [ext_resource type="PackedScene" uid="uid://dqvw3nmrc4iup" path="res://item/puerta.tscn" id="8_kveyd"]
 [ext_resource type="PackedScene" uid="uid://b16tdo8xmrdn0" path="res://item/hp_up.tscn" id="9_ebgrm"]
 [ext_resource type="PackedScene" uid="uid://cn4sr0kyflrum" path="res://ui/hud.tscn" id="10_cjfgi"]
@@ -18,6 +20,7 @@
 size = Vector2(79.9374, 3)
 
 [node name="PlazaDealey" type="Node2D"]
+script = ExtResource("1_iop4l")
 
 [node name="Backgrounds" type="Node2D" parent="."]
 
@@ -72,6 +75,9 @@ pitch_scale = 1.95
 position = Vector2(0, 2)
 stream = ExtResource("6_3vnfk")
 pitch_scale = 1.6
+
+[node name="HitDown" type="AudioStreamPlayer2D" parent="Personaje"]
+stream = ExtResource("8_hkaay")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("object_to_follow")]
 position = Vector2(192.5, 226)
