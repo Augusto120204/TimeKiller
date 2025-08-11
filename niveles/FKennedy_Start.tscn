@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dxbumb1fwsa1q"]
+[gd_scene load_steps=18 format=3 uid="uid://dxbumb1fwsa1q"]
 
 [ext_resource type="Texture2D" uid="uid://dio1snqssjj55" path="res://assets/nivel1/background/callejon.jpeg" id="1_4wuqg"]
 [ext_resource type="Script" uid="uid://c83w2w4la4o45" path="res://niveles/f_kennedy_start.gd" id="1_oqrx5"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b6t5yegsg8qqh" path="res://controller/game_controller.tscn" id="11_oqrx5"]
 [ext_resource type="PackedScene" uid="uid://ce5wyoh03axt7" path="res://assets/enemigos/enemy_shoot.tscn" id="12_4idcm"]
 [ext_resource type="PackedScene" uid="uid://7lvph7sm4qct" path="res://assets/enemigos/enemy_melee.tscn" id="13_oqrx5"]
+[ext_resource type="PackedScene" uid="uid://bgu0ciejmi1lx" path="res://Menu/pausa.tscn" id="16_b44hb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3cqu"]
 size = Vector2(79.9374, 4)
@@ -44,6 +45,22 @@ position = Vector2(7, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D"]
 position = Vector2(281, 284)
+shape = SubResource("RectangleShape2D_t3cqu")
+one_way_collision = true
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Plataformas"]
+position = Vector2(0, 86)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D6"]
+position = Vector2(402, 109)
+shape = SubResource("RectangleShape2D_t3cqu")
+one_way_collision = true
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Plataformas"]
+position = Vector2(0, 172)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D7"]
+position = Vector2(308, -33)
 shape = SubResource("RectangleShape2D_t3cqu")
 one_way_collision = true
 
@@ -119,6 +136,14 @@ visible = false
 position = Vector2(305, 177)
 jugador = NodePath("../Personaje")
 
+[node name="EnemyShoot5" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("12_4idcm")]
+position = Vector2(303, 120)
+jugador = NodePath("../Personaje")
+
+[node name="EnemyShoot4" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("12_4idcm")]
+position = Vector2(403, 178)
+jugador = NodePath("../Personaje")
+
 [node name="EnemyShoot3" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("12_4idcm")]
 position = Vector2(385, 247)
 jugador = NodePath("../Personaje")
@@ -126,6 +151,8 @@ jugador = NodePath("../Personaje")
 [node name="EnemyMelee" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("13_oqrx5")]
 position = Vector2(220, 289)
 jugador = NodePath("../Personaje")
+
+[node name="Pausa" parent="." instance=ExtResource("16_b44hb")]
 
 [connection signal="player_hit" from="Personaje" to="HUD" method="_on_personaje_player_hit"]
 [connection signal="player_hit" from="Personaje" to="GameController" method="_on_personaje_player_hit"]

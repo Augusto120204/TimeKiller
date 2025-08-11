@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgu0ciejmi1lx"]
+
+[ext_resource type="Script" uid="uid://bpr8si2qsn3v5" path="res://Menu/pausa.gd" id="1_64vt5"]
+[ext_resource type="PackedScene" uid="uid://0hf8jgjg3glk" path="res://Menu/settings_game.tscn" id="2_d1e2m"]
+[ext_resource type="Texture2D" uid="uid://s8aa8cbmjly5" path="res://assets/menuOptions/BP-Jugar-NoPulsado.png" id="2_vbjih"]
+[ext_resource type="Texture2D" uid="uid://ge28e5uk60kc" path="res://assets/menuOptions/BP-Jugar-Pulsado.png" id="3_6hiwe"]
+[ext_resource type="Texture2D" uid="uid://cypjf825xbhmj" path="res://assets/menuOptions/BP-Config-NoPulsado.png" id="4_wvq4o"]
+[ext_resource type="Texture2D" uid="uid://bp3d0s1d4fg8j" path="res://assets/menuOptions/BP-Config-Pulsado.png" id="5_pgag3"]
+[ext_resource type="Texture2D" uid="uid://cwxu584qm4jh3" path="res://assets/menuOptions/BP-Salir-NoPulsado.png" id="6_j5t30"]
+[ext_resource type="Texture2D" uid="uid://b1alwghfi65hj" path="res://assets/menuOptions/BP-Salir-Pulsado.png" id="7_qntjl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eqc4"]
+atlas = ExtResource("2_vbjih")
+region = Rect2(-0.219994, 4.30889, 199.781, 84.469)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mrkt"]
+atlas = ExtResource("4_wvq4o")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlj43"]
+atlas = ExtResource("6_j5t30")
+
+[node name="Pausa" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_64vt5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.152941, 0.152941, 0.152941, 0.466667)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.481
+anchor_top = 0.728
+anchor_right = 0.481
+anchor_bottom = 0.728
+offset_left = -100.112
+offset_top = -136.744
+offset_right = 99.8879
+offset_bottom = 137.256
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Jugar" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = SubResource("AtlasTexture_6eqc4")
+texture_pressed = ExtResource("3_6hiwe")
+
+[node name="Configuraciones" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_8mrkt")
+texture_pressed = ExtResource("5_pgag3")
+
+[node name="Salir" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_wlj43")
+texture_pressed = ExtResource("7_qntjl")
+
+[node name="SettingsContainer" parent="." instance=ExtResource("2_d1e2m")]
+
+[connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Configuraciones" to="." method="_on_configuraciones_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]
