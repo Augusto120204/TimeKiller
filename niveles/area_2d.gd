@@ -8,4 +8,5 @@ func _on_body_entered(body: Node2D) -> void:
 		change_scene()
 
 func change_scene() -> void:
+	print("Cambiando a escena: ", new_scene_path)
 	get_tree().change_scene_to_file(new_scene_path)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bgwx3b64s8s6m"]
+[gd_scene load_steps=16 format=3 uid="uid://bgwx3b64s8s6m"]
 
 [ext_resource type="Texture2D" uid="uid://c8gio2apc7410" path="res://assets/nivel1/background/TexasScholBook.jpeg" id="1_1nsdl"]
 [ext_resource type="PackedScene" uid="uid://t5rjj48qhwp8" path="res://plataforma/sueloCallejon.tscn" id="2_lnpgf"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://hq0ij3an0tsq" path="res://assets/soundEffects/gun-sound.mp3" id="5_3wb7r"]
 [ext_resource type="AudioStream" uid="uid://bgllwyqgp2rfi" path="res://assets/soundEffects/hp_up.mp3" id="6_u0bht"]
 [ext_resource type="Script" uid="uid://b63u266jh8cob" path="res://niveles/camera_Biblioteca.gd" id="7_ai5ew"]
+[ext_resource type="AudioStream" uid="uid://ddtjbye7nk60o" path="res://assets/soundEffects/hit_sound_effect.mp3" id="7_lnpgf"]
 [ext_resource type="PackedScene" uid="uid://dqvw3nmrc4iup" path="res://item/puerta.tscn" id="8_nev6x"]
 [ext_resource type="PackedScene" uid="uid://b16tdo8xmrdn0" path="res://item/hp_up.tscn" id="9_d6bfs"]
 [ext_resource type="PackedScene" uid="uid://cn4sr0kyflrum" path="res://ui/hud.tscn" id="10_fx6nm"]
@@ -72,6 +73,9 @@ pitch_scale = 1.95
 position = Vector2(0, 2)
 stream = ExtResource("6_u0bht")
 pitch_scale = 1.6
+
+[node name="HitDown" type="AudioStreamPlayer2D" parent="Personaje"]
+stream = ExtResource("7_lnpgf")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("object_to_follow")]
 position = Vector2(192.5, 226)

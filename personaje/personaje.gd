@@ -77,3 +77,7 @@ func hp_down():
 	hit_sound.play(0.25)
 	hit_down.play(0.50)
 	player_hit.emit()
+
+
+func _on_player_hit() -> void:
+	pass # Replace with function body.

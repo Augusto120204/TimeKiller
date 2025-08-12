@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://6u3tvrvxsf5b"]
+
+[ext_resource type="Script" uid="uid://dvi5x6osp4klx" path="res://assets/nivel1/win/video.gd" id="1_m2wec"]
+[ext_resource type="VideoStream" uid="uid://bxy0shkxigwcs" path="res://assets/nivel1/win/Nivel1Win.ogv" id="2_qpa78"]
+
+[node name="Video" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_m2wec")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -631.0
+offset_top = -419.0
+offset_right = 1249.0
+offset_bottom = 621.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_qpa78")
+autoplay = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(29.0959, 17.1255)
+color = Color(0.187176, 0.187176, 0.187176, 0.596078)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 440.0
+offset_right = 509.0
+offset_bottom = 464.0
+scale = Vector2(4.38029, 3.40766)
+text = "BACK"
+
+[node name="Win" type="Label" parent="."]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 122.0
+offset_right = 379.0
+offset_bottom = 138.0
+scale = Vector2(12.4219, 12.0041)
+text = "WIN!"
+horizontal_alignment = 1
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

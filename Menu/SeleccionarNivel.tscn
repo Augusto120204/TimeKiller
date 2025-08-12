@@ -99,7 +99,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = SubResource("AtlasTexture_gux0g")
 
-[node name="TextureButton2" type="TextureButton" parent="VBoxContainer"]
+[node name="Nivel2" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_q162i")
 
@@ -133,4 +133,5 @@ offset_bottom = 37.6
 text = "Back"
 
 [connection signal="pressed" from="VBoxContainer/Nivel1" to="." method="_on_nivel_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/Nivel2" to="." method="_on_nivel_2_pressed"]
 [connection signal="pressed" from="Volver/Back" to="." method="_on_back_pressed"]

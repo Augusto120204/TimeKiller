@@ -15,16 +15,26 @@ func set_title(title):
 func _on_button_button_down() -> void:
 	print("Boton presionado")
 	get_tree().paused = false
+	GameState.vidas = 3        # Reinicia vidas aquí
+	GameState.esta_muerto = false
 	get_tree().change_scene_to_file(scene_path)
 
 
 func _on_texture_button_button_down() -> void:
 	print("Boton presionado")
 	get_tree().paused = false
-	get_tree().change_scene_to_file(scene_path)
+	GameState.vidas = 3        # Reinicia vidas aquí
+	GameState.esta_muerto = false
+	get_tree().change_scene_to_file(GameState.nivel_actual)
 
 
 func _on_texture_button_pressed() -> void:
 	print("Boton presionado")
 	get_tree().paused = false
-	get_tree().change_scene_to_file(scene_path)
+	GameState.vidas = 3        # Reinicia vidas aquí
+	GameState.esta_muerto = false
+	get_tree().change_scene_to_file(GameState.nivel_actual)
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Menu/menu.tscn")

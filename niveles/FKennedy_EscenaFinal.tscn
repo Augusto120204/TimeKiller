@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://er82d0bhm3h1"]
+[gd_scene load_steps=17 format=3 uid="uid://er82d0bhm3h1"]
 
 [ext_resource type="Texture2D" uid="uid://6wn5tayhsowk" path="res://assets/nivel1/background/background_2.png" id="1_undqx"]
 [ext_resource type="PackedScene" uid="uid://dq7a63trd57k8" path="res://personaje/personaje.tscn" id="2_m50yp"]
@@ -6,12 +6,18 @@
 [ext_resource type="AudioStream" uid="uid://hq0ij3an0tsq" path="res://assets/soundEffects/gun-sound.mp3" id="4_o8dyl"]
 [ext_resource type="AudioStream" uid="uid://ddtjbye7nk60o" path="res://assets/soundEffects/hit_sound_effect.mp3" id="5_1olfk"]
 [ext_resource type="Script" uid="uid://bj8aolh5w08eu" path="res://camera_1_2.gd" id="6_cpoxd"]
+[ext_resource type="AudioStream" uid="uid://bgllwyqgp2rfi" path="res://assets/soundEffects/hp_up.mp3" id="6_r8k2x"]
 [ext_resource type="PackedScene" uid="uid://dqvw3nmrc4iup" path="res://item/puerta.tscn" id="7_r8k2x"]
 [ext_resource type="PackedScene" uid="uid://cn4sr0kyflrum" path="res://ui/hud.tscn" id="8_ljcae"]
 [ext_resource type="PackedScene" uid="uid://ce5wyoh03axt7" path="res://assets/enemigos/enemy_shoot.tscn" id="9_igtre"]
+[ext_resource type="PackedScene" uid="uid://7lvph7sm4qct" path="res://assets/enemigos/enemy_melee.tscn" id="10_m50yp"]
+[ext_resource type="PackedScene" uid="uid://bnxi27hpeh2eh" path="res://plataforma/sueloLibrary.tscn" id="11_wti6k"]
+[ext_resource type="PackedScene" uid="uid://bgu0ciejmi1lx" path="res://Menu/pausa.tscn" id="12_1olfk"]
+[ext_resource type="PackedScene" uid="uid://b6t5yegsg8qqh" path="res://controller/game_controller.tscn" id="12_o8dyl"]
+[ext_resource type="PackedScene" uid="uid://b16tdo8xmrdn0" path="res://item/hp_up.tscn" id="15_ljcae"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djabo"]
-size = Vector2(600, 20)
+size = Vector2(715, 20)
 
 [node name="Nivel_1_2" type="Node2D"]
 
@@ -23,7 +29,7 @@ scale = Vector2(1, 0.78)
 texture = ExtResource("1_undqx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(300, 270)
+position = Vector2(242.5, 270)
 shape = SubResource("RectangleShape2D_djabo")
 
 [node name="Personaje" parent="." instance=ExtResource("2_m50yp")]
@@ -41,17 +47,81 @@ pitch_scale = 1.95
 [node name="HitDown" type="AudioStreamPlayer2D" parent="Personaje"]
 stream = ExtResource("5_1olfk")
 
+[node name="HpUpSound" type="AudioStreamPlayer2D" parent="Personaje"]
+position = Vector2(0, 2)
+stream = ExtResource("6_r8k2x")
+pitch_scale = 1.6
+
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("object_to_follow")]
 position = Vector2(194, 175)
 zoom = Vector2(3, 3)
 script = ExtResource("6_cpoxd")
 object_to_follow = NodePath("../Personaje")
 
-[node name="Puerta" parent="." instance=ExtResource("7_r8k2x")]
-position = Vector2(560, 251)
-new_scene_path = "res://niveles/nivel_2_1.tscn"
+[node name="Pausa" parent="." instance=ExtResource("12_1olfk")]
 
 [node name="HUD" parent="." instance=ExtResource("8_ljcae")]
 
-[node name="EnemyShoot" parent="." instance=ExtResource("9_igtre")]
-position = Vector2(273, 226)
+[node name="HpUp2" parent="." instance=ExtResource("15_ljcae")]
+position = Vector2(182, 248)
+
+[node name="HpUp" parent="." instance=ExtResource("15_ljcae")]
+position = Vector2(15, 200)
+
+[node name="Puerta" parent="." instance=ExtResource("7_r8k2x")]
+position = Vector2(560, 251)
+new_scene_path = "res://assets/nivel1/win/video.tscn"
+
+[node name="GameController" parent="." instance=ExtResource("12_o8dyl")]
+
+[node name="EnemyShoot" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("9_igtre")]
+position = Vector2(271, 240)
+jugador = NodePath("../Personaje")
+
+[node name="EnemyShoot2" parent="." instance=ExtResource("9_igtre")]
+position = Vector2(167, 142)
+
+[node name="EnemyShoot6" parent="." instance=ExtResource("9_igtre")]
+position = Vector2(386, 115)
+
+[node name="EnemyShoot5" parent="." instance=ExtResource("9_igtre")]
+position = Vector2(499, 241)
+
+[node name="EnemyShoot4" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("9_igtre")]
+position = Vector2(336, 239)
+jugador = NodePath("../Personaje")
+
+[node name="EnemyShoot3" parent="." instance=ExtResource("9_igtre")]
+position = Vector2(197, 144)
+
+[node name="EnemyMelee" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("10_m50yp")]
+position = Vector2(-106, 239)
+jugador = NodePath("../Personaje")
+
+[node name="EnemyMelee2" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("10_m50yp")]
+position = Vector2(98, 105)
+jugador = NodePath("../Personaje")
+
+[node name="EnemyMelee3" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("10_m50yp")]
+position = Vector2(218, 197)
+jugador = NodePath("../Personaje")
+
+[node name="EnemyMelee4" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("10_m50yp")]
+position = Vector2(285, 224)
+jugador = NodePath("../Personaje")
+
+[node name="Plataformas" type="Node2D" parent="."]
+
+[node name="StaticBody2D2" parent="Plataformas" instance=ExtResource("11_wti6k")]
+position = Vector2(106, 160)
+
+[node name="StaticBody2D4" parent="Plataformas" instance=ExtResource("11_wti6k")]
+position = Vector2(231, 125)
+
+[node name="StaticBody2D3" parent="Plataformas" instance=ExtResource("11_wti6k")]
+position = Vector2(-146, 212)
+
+[connection signal="player_hit" from="Personaje" to="HUD" method="_on_personaje_player_hit"]
+[connection signal="player_hit" from="Personaje" to="GameController" method="_on_personaje_player_hit"]
+[connection signal="player_hp_up" from="Personaje" to="HUD" method="_on_personaje_player_hp_up"]
+[connection signal="player_hp_up" from="Personaje" to="GameController" method="_on_personaje_player_hp_up"]

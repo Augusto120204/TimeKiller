@@ -1,0 +1,154 @@
+[gd_scene load_steps=20 format=3 uid="uid://b6kj1aaavev0n"]
+
+[ext_resource type="Script" uid="uid://cetbrelgxhqvg" path="res://niveles/nivel_2_4.gd" id="1_shy1g"]
+[ext_resource type="AudioStream" uid="uid://firuggppy6id" path="res://assets/soundEffects/silbido-bomba-cayendo-6706.mp3" id="2_k3k5u"]
+[ext_resource type="PackedScene" uid="uid://dq7a63trd57k8" path="res://personaje/personaje.tscn" id="2_ppedd"]
+[ext_resource type="Texture2D" uid="uid://cc0ay4clclv1c" path="res://assets/nivel2/background/background_4.jpg" id="2_shy1g"]
+[ext_resource type="AudioStream" uid="uid://bjgtov40mbl0p" path="res://assets/soundEffects/explosion-large-129051.mp3" id="2_xo6bq"]
+[ext_resource type="AudioStream" uid="uid://74vr5jd42nnb" path="res://assets/soundEffects/hit.mp3" id="3_one4w"]
+[ext_resource type="AudioStream" uid="uid://hq0ij3an0tsq" path="res://assets/soundEffects/gun-sound.mp3" id="4_e4d4e"]
+[ext_resource type="AudioStream" uid="uid://ddtjbye7nk60o" path="res://assets/soundEffects/hit_sound_effect.mp3" id="5_gxmgi"]
+[ext_resource type="AudioStream" uid="uid://bgllwyqgp2rfi" path="res://assets/soundEffects/hp_up.mp3" id="6_5a6lv"]
+[ext_resource type="PackedScene" uid="uid://dqvw3nmrc4iup" path="res://item/puerta.tscn" id="8_dkcwu"]
+[ext_resource type="PackedScene" uid="uid://b16tdo8xmrdn0" path="res://item/hp_up.tscn" id="9_krbsd"]
+[ext_resource type="Script" uid="uid://gi6i5ashndpp" path="res://camera_2_4.gd" id="10_k3k5u"]
+[ext_resource type="PackedScene" uid="uid://cn4sr0kyflrum" path="res://ui/hud.tscn" id="10_twe8e"]
+[ext_resource type="PackedScene" uid="uid://b6t5yegsg8qqh" path="res://controller/game_controller.tscn" id="11_ul3ji"]
+[ext_resource type="PackedScene" uid="uid://7lvph7sm4qct" path="res://assets/enemigos/enemy_melee.tscn" id="12_6ayoq"]
+[ext_resource type="PackedScene" uid="uid://ce5wyoh03axt7" path="res://assets/enemigos/enemy_shoot.tscn" id="13_8d4q1"]
+[ext_resource type="PackedScene" uid="uid://bgu0ciejmi1lx" path="res://Menu/pausa.tscn" id="17_4sn2j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbl20"]
+size = Vector2(600, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ay1gd"]
+size = Vector2(600, 26.7215)
+
+[node name="nivel_2_4" type="Node2D"]
+script = ExtResource("1_shy1g")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="DropBombSound" type="AudioStreamPlayer2D" parent="StaticBody2D"]
+position = Vector2(0, -3.05176e-05)
+stream = ExtResource("2_k3k5u")
+volume_db = -8.914
+pitch_scale = 1.19
+attenuation = 0.554785
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="StaticBody2D"]
+position = Vector2(0, -1.52588e-05)
+stream = ExtResource("2_xo6bq")
+volume_db = -8.914
+pitch_scale = 1.42
+attenuation = 0.554785
+
+[node name="Background3" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(290, 143)
+scale = Vector2(0.454037, 0.359955)
+texture = ExtResource("2_shy1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(300, 268)
+shape = SubResource("RectangleShape2D_lbl20")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(99, 231)
+rotation = 3.14159
+scale = Vector2(0.0620722, -0.393656)
+shape = SubResource("RectangleShape2D_ay1gd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(176, 215)
+scale = Vector2(0.0631576, 0.620986)
+shape = SubResource("RectangleShape2D_ay1gd")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(330, 219)
+scale = Vector2(0.0421352, 0.284938)
+shape = SubResource("RectangleShape2D_ay1gd")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(466, 215)
+scale = Vector2(0.0465847, 0.356335)
+shape = SubResource("RectangleShape2D_ay1gd")
+
+[node name="Personaje" parent="." instance=ExtResource("2_ppedd")]
+position = Vector2(22, 224)
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Personaje"]
+stream = ExtResource("3_one4w")
+pitch_scale = 1.76
+attenuation = 0.554785
+
+[node name="GunSound" type="AudioStreamPlayer2D" parent="Personaje"]
+stream = ExtResource("4_e4d4e")
+pitch_scale = 1.95
+
+[node name="HitDown" type="AudioStreamPlayer2D" parent="Personaje"]
+stream = ExtResource("5_gxmgi")
+
+[node name="HpUpSound" type="AudioStreamPlayer2D" parent="Personaje"]
+position = Vector2(0, 2)
+stream = ExtResource("6_5a6lv")
+pitch_scale = 1.6
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("object_to_follow")]
+position = Vector2(194, 162)
+zoom = Vector2(3, 3)
+script = ExtResource("10_k3k5u")
+object_to_follow = NodePath("../Personaje")
+
+[node name="Puerta" parent="." instance=ExtResource("8_dkcwu")]
+position = Vector2(575, 232)
+scale = Vector2(-2.85168, 1.56169)
+new_scene_path = "res://assets/nivel2/win/video.tscn"
+
+[node name="HpUp" parent="." instance=ExtResource("9_krbsd")]
+position = Vector2(98, 216)
+texture_path = "res://assets/items/healt/potion.png"
+
+[node name="HpUp3" parent="." instance=ExtResource("9_krbsd")]
+position = Vector2(477, 142)
+texture_path = "res://assets/items/healt/potion.png"
+
+[node name="HpUp2" parent="." instance=ExtResource("9_krbsd")]
+position = Vector2(229, 141)
+texture_path = "res://assets/items/healt/potion.png"
+
+[node name="HUD" parent="." instance=ExtResource("10_twe8e")]
+
+[node name="GameController" parent="." instance=ExtResource("11_ul3ji")]
+position = Vector2(305, 177)
+
+[node name="EnemyMelee3" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("12_6ayoq")]
+position = Vector2(165, 193)
+jugador = NodePath("../Personaje")
+
+[node name="EnemyShoot3" parent="." instance=ExtResource("13_8d4q1")]
+position = Vector2(331, 199)
+
+[node name="EnemyShoot5" parent="." instance=ExtResource("13_8d4q1")]
+position = Vector2(413, 240)
+
+[node name="EnemyShoot4" parent="." instance=ExtResource("13_8d4q1")]
+position = Vector2(259, 238)
+
+[node name="EnemyShoot6" parent="." instance=ExtResource("13_8d4q1")]
+position = Vector2(202, 241)
+
+[node name="Pausa" parent="." instance=ExtResource("17_4sn2j")]
+
+[node name="EnemyShoot2" parent="." instance=ExtResource("13_8d4q1")]
+position = Vector2(468, 192)
+
+[node name="FlashRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(14.6312, 7.53095)
+
+[connection signal="player_hit" from="Personaje" to="HUD" method="_on_personaje_player_hit"]
+[connection signal="player_hit" from="Personaje" to="GameController" method="_on_personaje_player_hit"]
+[connection signal="player_hp_up" from="Personaje" to="HUD" method="_on_personaje_player_hp_up"]
+[connection signal="player_hp_up" from="Personaje" to="GameController" method="_on_personaje_player_hp_up"]

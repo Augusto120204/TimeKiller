@@ -13,5 +13,4 @@ scale = Vector2(0.553571, 0.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-128.626, -102.683)
 rotation = 0.680678
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wiepx")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnxi27hpeh2eh"]
+
+[ext_resource type="Texture2D" uid="uid://c1vic4fo827x5" path="res://plataforma/callejonGround.png" id="1_j2v8k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3t8y"]
+size = Vector2(174, 20)
+
+[node name="SueloLibrary" type="StaticBody2D"]
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(84, 10)
+scale = Vector2(0.93785, 0.533262)
+texture = ExtResource("1_j2v8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(88, 10)
+shape = SubResource("RectangleShape2D_b3t8y")

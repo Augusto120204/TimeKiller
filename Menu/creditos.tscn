@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://c204i7qubhhmh"]
+
+[ext_resource type="Script" uid="uid://bob1h6iumou6m" path="res://Menu/creditos.gd" id="1_ymu8m"]
+[ext_resource type="Texture2D" uid="uid://dhhie1mp1v0gl" path="res://assets/interfaces/fondos/Home.png" id="2_23c16"]
+
+[node name="Creditos" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ymu8m")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = 1.0
+offset_right = 1156.0
+offset_bottom = 651.0
+texture = ExtResource("2_23c16")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(29.5126, 16.6797)
+color = Color(0.105882, 0.105882, 0.105882, 0.85098)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 28.0
+offset_right = 480.0
+offset_bottom = 51.0
+scale = Vector2(4.21261, 5.14714)
+text = "CREDITS"
+
+[node name="Equipo" type="Label" parent="."]
+offset_left = 477.0
+offset_top = 153.0
+offset_right = 525.0
+offset_bottom = 169.0
+scale = Vector2(3.42741, 3.37608)
+text = "Team"
+
+[node name="Equipo2" type="Label" parent="."]
+offset_left = 253.0
+offset_top = 231.0
+offset_right = 676.0
+offset_bottom = 349.0
+scale = Vector2(1.59605, 1.80794)
+text = "Designer and Narrative:        Sheylee Enríquez
+Visual Artist:                          Erick Lasluisa
+Project Leader:                    Francisco Quiroga
+Secondary Programmer 
+and Tester:                           Ariel Rivadeneira
+Lead Programmer:               Augusto Salazar"
+
+[node name="Equipo3" type="Label" parent="."]
+offset_left = 303.0
+offset_top = 499.0
+offset_right = 676.0
+offset_bottom = 515.0
+scale = Vector2(1.41896, 1.68059)
+text = "Thanks to everyone who supported this project."
+
+[node name="Volver" type="Button" parent="."]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 571.0
+offset_right = 573.0
+offset_bottom = 595.0
+scale = Vector2(2.15185, 2.28722)
+text = "Back
+"
+
+[connection signal="pressed" from="Volver" to="." method="_on_volver_pressed"]

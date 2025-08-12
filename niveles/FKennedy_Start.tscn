@@ -130,7 +130,6 @@ position = Vector2(360, 260)
 [node name="HUD" parent="." instance=ExtResource("10_4idcm")]
 
 [node name="GameController" parent="." instance=ExtResource("11_oqrx5")]
-visible = false
 
 [node name="EnemyShoot2" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("12_4idcm")]
 position = Vector2(305, 177)

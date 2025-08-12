@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 BocinaPrincipal="*res://assets/music/bocina_principal.tscn"
+GameState="*res://controller/GameState.gd"
 
 [display]
 

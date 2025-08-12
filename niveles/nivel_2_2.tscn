@@ -1,10 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://bola3risn2lc5"]
+[gd_scene load_steps=17 format=3 uid="uid://bola3risn2lc5"]
 
 [ext_resource type="Texture2D" uid="uid://ccli76t0xh5lh" path="res://assets/nivel2/background/background.png" id="1_osgfd"]
 [ext_resource type="PackedScene" uid="uid://dq7a63trd57k8" path="res://personaje/personaje.tscn" id="2_5vq46"]
 [ext_resource type="PackedScene" uid="uid://biy877qa37afy" path="res://plataforma/tank.tscn" id="2_ns3yi"]
 [ext_resource type="Script" uid="uid://xoqbjrlnm4n1" path="res://niveles/camera_2d.gd" id="3_ns3yi"]
 [ext_resource type="PackedScene" uid="uid://dqvw3nmrc4iup" path="res://item/puerta.tscn" id="4_5vq46"]
+[ext_resource type="AudioStream" uid="uid://74vr5jd42nnb" path="res://assets/soundEffects/hit.mp3" id="4_rquod"]
+[ext_resource type="AudioStream" uid="uid://hq0ij3an0tsq" path="res://assets/soundEffects/gun-sound.mp3" id="5_bb5bi"]
+[ext_resource type="AudioStream" uid="uid://ddtjbye7nk60o" path="res://assets/soundEffects/hit_sound_effect.mp3" id="6_rjah6"]
+[ext_resource type="AudioStream" uid="uid://bgllwyqgp2rfi" path="res://assets/soundEffects/hp_up.mp3" id="7_jgse0"]
+[ext_resource type="PackedScene" uid="uid://cn4sr0kyflrum" path="res://ui/hud.tscn" id="10_8ytul"]
+[ext_resource type="PackedScene" uid="uid://b6t5yegsg8qqh" path="res://controller/game_controller.tscn" id="11_kee3m"]
+[ext_resource type="PackedScene" uid="uid://b16tdo8xmrdn0" path="res://item/hp_up.tscn" id="12_uk4ly"]
+[ext_resource type="PackedScene" uid="uid://7lvph7sm4qct" path="res://assets/enemigos/enemy_melee.tscn" id="13_w0l01"]
+[ext_resource type="PackedScene" uid="uid://ce5wyoh03axt7" path="res://assets/enemigos/enemy_shoot.tscn" id="14_2fgwu"]
+[ext_resource type="PackedScene" uid="uid://bgu0ciejmi1lx" path="res://Menu/pausa.tscn" id="15_bb5bi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7qb4"]
 size = Vector2(600, 20)
@@ -19,6 +29,21 @@ size = Vector2(600, 20)
 position = Vector2(300, 150)
 texture = ExtResource("1_osgfd")
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="background/StaticBody2D"]
+position = Vector2(377, 124)
+scale = Vector2(0.0631576, 0.620986)
+shape = SubResource("RectangleShape2D_c7qb4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="background/StaticBody2D"]
+position = Vector2(187, 138)
+scale = Vector2(0.0631576, 0.620986)
+shape = SubResource("RectangleShape2D_c7qb4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="background/StaticBody2D"]
+position = Vector2(84, 70)
+scale = Vector2(0.0631576, 0.620986)
+shape = SubResource("RectangleShape2D_c7qb4")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background/StaticBody2D"]
 position = Vector2(300, 220)
 shape = SubResource("RectangleShape2D_c7qb4")
@@ -29,6 +54,23 @@ position = Vector2(490, 173)
 [node name="Personaje" parent="." instance=ExtResource("2_5vq46")]
 position = Vector2(40, 186)
 
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Personaje"]
+stream = ExtResource("4_rquod")
+pitch_scale = 1.76
+attenuation = 0.554785
+
+[node name="GunSound" type="AudioStreamPlayer2D" parent="Personaje"]
+stream = ExtResource("5_bb5bi")
+pitch_scale = 1.95
+
+[node name="HitDown" type="AudioStreamPlayer2D" parent="Personaje"]
+stream = ExtResource("6_rjah6")
+
+[node name="HpUpSound" type="AudioStreamPlayer2D" parent="Personaje"]
+position = Vector2(0, 2)
+stream = ExtResource("7_jgse0")
+pitch_scale = 1.6
+
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("object_to_follow")]
 position = Vector2(194, 135)
 zoom = Vector2(3, 3)
@@ -38,3 +80,45 @@ object_to_follow = NodePath("../Personaje")
 [node name="Puerta" parent="." instance=ExtResource("4_5vq46")]
 position = Vector2(578, 185)
 new_scene_path = "res://niveles/nivel_2_3.tscn"
+
+[node name="HUD" parent="." instance=ExtResource("10_8ytul")]
+
+[node name="GameController" parent="." instance=ExtResource("11_kee3m")]
+position = Vector2(305, 177)
+
+[node name="HpUp2" parent="." instance=ExtResource("12_uk4ly")]
+position = Vector2(497, 120)
+
+[node name="HpUp" parent="." instance=ExtResource("12_uk4ly")]
+position = Vector2(243, 151)
+
+[node name="EnemyMelee3" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("13_w0l01")]
+position = Vector2(236, 190)
+jugador = NodePath("../Personaje")
+
+[node name="EnemyMelee2" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("13_w0l01")]
+position = Vector2(356, 192)
+jugador = NodePath("../Personaje")
+
+[node name="EnemyShoot3" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("14_2fgwu")]
+position = Vector2(88, 48)
+jugador = NodePath("")
+
+[node name="EnemyShoot5" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("14_2fgwu")]
+position = Vector2(195, 118)
+jugador = NodePath("")
+
+[node name="EnemyShoot4" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("14_2fgwu")]
+position = Vector2(382, 103)
+jugador = NodePath("")
+
+[node name="EnemyShoot2" parent="." node_paths=PackedStringArray("jugador") instance=ExtResource("14_2fgwu")]
+position = Vector2(305, 177)
+jugador = NodePath("")
+
+[node name="Pausa" parent="." instance=ExtResource("15_bb5bi")]
+
+[connection signal="player_hit" from="Personaje" to="HUD" method="_on_personaje_player_hit"]
+[connection signal="player_hit" from="Personaje" to="GameController" method="_on_personaje_player_hit"]
+[connection signal="player_hp_up" from="Personaje" to="HUD" method="_on_personaje_player_hp_up"]
+[connection signal="player_hp_up" from="Personaje" to="GameController" method="_on_personaje_player_hp_up"]

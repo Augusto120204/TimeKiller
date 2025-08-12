@@ -71,6 +71,15 @@ texture_pressed = ExtResource("8_2p233")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Creditos" type="Button" parent="."]
+offset_left = 1067.0
+offset_top = 612.0
+offset_right = 1139.0
+offset_bottom = 636.0
+scale = Vector2(1.12332, 1.31917)
+text = "Creditos"
+
 [connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Configuraciones" to="." method="_on_configuraciones_pressed"]
 [connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="Creditos" to="." method="_on_creditos_pressed"]
